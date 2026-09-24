@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="et" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title} + ' | Spring Boot CRUD'">Spring Boot CRUD</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<nav th:fragment="navigation" class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Spring Boot CRUD</a>
+        <a class="btn btn-outline-light" th:href="@{/users}">Kasutajad</a>
+    </div>
+</nav>
+</body>
+</html>

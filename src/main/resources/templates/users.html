@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="et" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Kasutajad')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navigation}"></nav>
+<main class="container py-4">
+    <div th:if="${message}" class="alert alert-success" role="alert" th:text="${message}"></div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Kasutajad</h1>
+        <a class="btn btn-primary" th:href="@{/users/new}">Lisa kasutaja</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>E-post</th>
+                <th>Eesnimi</th>
+                <th>Perekonnanimi</th>
+                <th>Aktiivne</th>
+                <th>Tegevused</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${listUsers}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.enabled ? 'Jah' : 'Ei'}"></td>
+                <td>
+                    <a class="btn btn-sm btn-outline-primary"
+                       th:href="@{'/users/edit/' + ${user.id}}">Muuda</a>
+                    <a class="btn btn-sm btn-outline-danger"
+                       th:href="@{'/users/delete/' + ${user.id}}"
+                       onclick="return confirm('Kas soovid selle kasutaja kustutada?')">Kustuta</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(listUsers)}">
+                <td colspan="6" class="text-center text-muted">Kasutajaid ei ole veel lisatud.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

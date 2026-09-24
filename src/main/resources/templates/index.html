@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="et" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Avaleht')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navigation}"></nav>
+<main class="container py-5 text-center">
+    <h1 class="display-5">Kasutajate haldus</h1>
+    <p class="lead">Spring Booti CRUD-rakendus kasutajate lisamiseks, muutmiseks ja kustutamiseks.</p>
+    <a class="btn btn-primary" th:href="@{/users}">Ava kasutajad</a>
+</main>
+</body>
+</html>

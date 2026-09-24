@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="et" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${pageTitle})}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navigation}"></nav>
+<main class="container py-4">
+    <h1 class="mb-4" th:text="${pageTitle}"></h1>
+    <form th:action="@{/users/save}" th:object="${user}" method="post" class="col-lg-6">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label for="email" class="form-label">E-post</label>
+            <input id="email" type="email" th:field="*{email}" class="form-control" required maxlength="100">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Parool</label>
+            <input id="password" type="password" th:field="*{password}" class="form-control" required maxlength="100">
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Eesnimi</label>
+            <input id="firstName" type="text" th:field="*{firstName}" class="form-control" required maxlength="45">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Perekonnanimi</label>
+            <input id="lastName" type="text" th:field="*{lastName}" class="form-control" required maxlength="45">
+        </div>
+        <div class="form-check mb-4">
+            <input id="enabled" type="checkbox" th:field="*{enabled}" class="form-check-input">
+            <label for="enabled" class="form-check-label">Kasutaja on aktiivne</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvesta</button>
+        <a th:href="@{/users}" class="btn btn-secondary">Tühista</a>
+    </form>
+</main>
+</body>
+</html>

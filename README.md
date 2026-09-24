@@ -87,14 +87,11 @@ Rakenduse esimesel käivitamisel loob Hibernate MySQL-i andmebaasi tabeli
 MacOS-i või Linuxi korral:
 
 ```bash
-./mvnw spring-boot:run
-```
-
-Kui Maven Wrapperit ei ole kasutusel, võib kasutada:
-
-```bash
 mvn spring-boot:run
 ```
+
+IntelliJ IDEA kasutamisel võib rakenduse käivitada ka otse
+`SpringbootCrudApplication.java` faili `main`-meetodist.
 
 ## Rakenduse aadressid
 
@@ -107,8 +104,11 @@ mvn spring-boot:run
 ## Testide käivitamine
 
 ```bash
-./mvnw test
+mvn test
 ```
+
+Kui Maven ei ole käsureal paigaldatud, saab nii rakenduse kui ka testid
+käivitada IntelliJ IDEA Maven-paneeli kaudu.
 
 Testid kontrollivad muu hulgas kasutajate nimekirja tagastamist, puuduva
 kasutaja käsitlemist ja kasutaja kustutamist.
